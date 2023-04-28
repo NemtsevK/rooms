@@ -1,0 +1,98 @@
+@media (max-width: 767px){
+
+    .title_h1{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .title_h3{
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .text{
+        font-family: "Open Sans", "Arial", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        margin: 0;
+    }
+
+    .button{
+        border-radius: 3px;
+    }
+
+    .button__text{
+        font-size: 14px;
+    }
+
+    .header{
+        padding: 24px 0 0 0;
+    }
+
+    .main{
+        margin: 24px 0 0 0;
+    }
+
+    .container-card{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        row-gap: 32px;
+    }
+
+    .card-box__card-content{
+        padding: 21px;
+    }
+
+    .container-card__card-box{
+        width: 288px;
+        height: 347px;
+        border-radius: 13px;
+    }
+
+    .card-box__card-descripion{
+        margin: 10px 0 0 0;
+    }
+
+    .card-box__line{
+        margin: 21px 0 18px 0;
+    }
+
+    .card-box__card-footer{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+        row-gap: 16px;
+    }
+
+    .card-footer__area-button{
+        align-self: stretch;
+    }
+
+    .area-price__head{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    
+    .area-price__text{
+        font-size: 17px;
+        line-height: 21px;
+    }
+    
+    .area-price__symbol,
+    .area-price__cost{
+        font-size: 20px;
+    }
+    
+      .area-button__btn{
+        height: 42px;
+        padding: 0 1px 0 1px;
+    }
+
+
+
+
+}
