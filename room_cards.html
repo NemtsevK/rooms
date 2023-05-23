@@ -1,116 +1,112 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="page" lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0" name="viewport" />
-    <link rel="icon" href="favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" >
+    <link rel="icon" href="favicon.ico">
     <title>Карточки номеров</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style_tablet.css" />
-    <link rel="stylesheet" href="css/style_mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body class="page-block">
+  <body class="page__body">
     <header class="header">
-      <h1 class="title--first header__title">НОМЕРА И ЦЕНЫ</h1>
+      <h1 class="header__title title">НОМЕРА И ЦЕНЫ</h1>
     </header>
 
     <main class="main">
-      <section class="container-card main__container-card">
-        <div class="container-card__card-box">
-          <div class="card__reserved"></div>
-          <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br />Перейти к <a class="text__link" href="">оплате</a></span>
-          </div>
-          <div class="best-price hidden">Гарантия лучшей цены!</div>
-
-          <div class="card-box__card-content">
-            <h3 class="title--third card-box__card-title">
+      <ul class="card-list">
+        <li class="card-list__item">
+          <section class="card">
+            <h3 class="card__title">
               <a class="card-title__link" href="">Представительский люкс</a>
             </h3>
-            <p class="text card-box__card-description">Эксклюзивный номер с панорамным видом на центр города Москвы</p>
-            <hr class="card-box__line" />
-            <div class="card-box__card-footer">
-              <div class="card-footer__area-price">
+            <p class="card__description">Эксклюзивный номер с панорамным видом на центр города Москвы</p>
+            <hr class="card__line">
+            <div class="card__footer">
+              <div class="card__area-price">
                 <span class="area-price__head">Цена за сутки</span>
                 <span class="area-price__text">от <span class="area-price__cost">7 900</span> <span class="area-price__symbol">₽</span></span>
               </div>
-              <div class="card-footer__area-button">
-                <a class="button area-button__btn">
-                  <span class="button__text">Забронировать</span>
-                </a>
+              <div class="card__area-button">
+                <a class="card__button">Забронировать</a>
               </div>
             </div>
-          </div>
-          <picture class="card-box__image-container">
-            <img class="card-box__image" src="img/room_1.jpg" alt="Представительский люкс" />
-          </picture>
-        </div>
+          </section>
 
-        <div class="container-card__card-box">
           <div class="card__reserved"></div>
           <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br />Перейти к <a class="text__link" href="">оплате</a></span>
+            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
           </div>
-          <div class="best-price active">Гарантия лучшей цены!</div>
-          <div class="card-box__card-content">
-            <h3 class="title--third card-box__card-title" href="">
+          <div class="best-price best-price--hidden">Гарантия лучшей цены!</div>
+
+          <picture class="card-box__image-container">
+            <img class="card-box__image" src="img/room_1.jpg" alt="Представительский люкс">
+          </picture>
+        </li>
+
+        <li class="card-list__item">
+          <section class="card">
+            <h3 class="card__title">
               <a class="card-title__link" href="">Дуплекс</a>
             </h3>
-            <p class="text card-box__card-description">Просторный двухкомнатный номер с шикарным видом на парк</p>
-            <hr class="card-box__line" />
-            <div class="card-box__card-footer">
-              <div class="card-footer__area-price">
+            <p class="card__description">Просторный двухкомнатный номер с шикарным видом на парк</p>
+            <hr class="card__line">
+            <div class="card__footer">
+              <div class="card__area-price">
                 <span class="area-price__head">Цена за сутки</span>
                 <span class="area-price__text">от <span class="area-price__cost">5 700</span> <span class="area-price__symbol">₽</span></span>
               </div>
-              <div class="card-footer__area-button">
-                <a class="button area-button__btn">
-                  <span class="button__text">Забронировать</span>
-                </a>
+              <div class="card__area-button">
+                <a class="card__button">Забронировать</a>
               </div>
             </div>
-          </div>
-          <picture class="card-box__image-container">
-            <img class="card-box__image" src="img/room_2.jpg" alt="Дуплекс" />
-          </picture>
-        </div>
+          </section>
 
-        <div class="container-card__card-box">
           <div class="card__reserved"></div>
           <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br />Перейти к <a class="text__link" href="">оплате</a></span>
+            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
           </div>
-          <div class="best-price hidden">Гарантия лучшей цены!</div>
-          <div class="card-box__card-content">
-            <h3 class="title--third card-box__card-title">
+          <div class="best-price best-price--active">Гарантия лучшей цены!</div>
+
+          <picture class="card-box__image-container">
+            <img class="card-box__image" src="img/room_2.jpg" alt="Дуплекс">
+          </picture>
+        </li>
+
+        <li class="card-list__item">
+          <section class="card">
+            <h3 class="card__title">
               <a class="card-title__link" href="">Бизнес-люкс</a>
             </h3>
-            <p class="text card-box__card-description">Трёхкомнатный номер с панорамным видом на Москва-реку</p>
-            <hr class="card-box__line" />
-            <div class="card-box__card-footer">
-              <div class="card-footer__area-price">
+            <p class="card__description">Трёхкомнатный номер с панорамным видом на Москва-реку</p>
+            <hr class="card__line">
+            <div class="card__footer">
+              <div class="card__area-price">
                 <span class="area-price__head">Цена за сутки</span>
                 <span class="area-price__text"> от <span class="area-price__cost">4 900</span> <span class="area-price__symbol">₽</span></span>
               </div>
-              <div class="card-footer__area-button">
-                <a class="button area-button__btn">
-                  <span class="button__text">Забронировать</span>
-                </a>
+              <div class="card__area-button">
+                <a class="card__button">Забронировать</a>
               </div>
             </div>
+          </section>
+
+          <div class="card__reserved"></div>
+          <div class="footer__reserved">
+            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
           </div>
+          <div class="best-price best-price--hidden">Гарантия лучшей цены!</div>
+
           <picture class="card-box__image-container card-box__image-container">
-            <img class="card-box__image" src="img/room_3.jpg" alt="Бизнес-люкс" />
+            <img class="card-box__image" src="img/room_3.jpg" alt="Бизнес-люкс">
           </picture>
-        </div>
-      </section>
+        </li>
+      </ul>
     </main>
-    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="js/ext.js"></script>
   </body>
 </html>

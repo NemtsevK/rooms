@@ -1,42 +1,41 @@
 {
-	"folders": [
-	  {
-		"path": "."
-	  }
-	],
-	"settings": {
-	  "cSpell.language": "en,ru", //русский и английский словарь для проверки слов
-	  "editor.wordWrap": "on", //перенос длинных строк
-	  "auto-rename-tag.activationOnLanguage": ["html", "xml", "php", "javascript"], //авто переименование парных тегов
-	  "workbench.editor.wrapTabs": true, //перенос вкладок
-	  // подсказки типов ⬇️
-	  "javascript.inlayHints.enumMemberValues.enabled": true,
-	  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-	  "javascript.inlayHints.parameterNames.enabled": "literals",
-	  "javascript.inlayHints.parameterTypes.enabled": true,
-	  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-	  "javascript.inlayHints.variableTypes.enabled": true,
-	  "javascript.updateImportsOnFileMove.enabled": "always",
-	  // ошибки типизации ⬇️
-	  "js/ts.implicitProjectConfig.checkJs": true,
-	  // Работа с файлами
-	  "files.autoSave": "onFocusChange",
-	  "files.defaultLanguage": "markdown",
-	  // Доводка терминала
-	  "terminal.integrated.defaultProfile.osx": "zsh",
-	  "terminal.integrated.fontSize": 10,
-	  // Доводка рабочей области
-	  "workbench.colorCustomizations": {
-		"tab.activeBackground": "#fff3"
-	  },
-	  "workbench.editor.limit.value": 5,
-	  "prettier.printWidth": 200,
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "cSpell.language": "en,ru", //русский и английский словарь для проверки слов
+    "editor.wordWrap": "on", //перенос длинных строк
+    "auto-rename-tag.activationOnLanguage": ["html", "xml", "php", "javascript"], //авто переименование парных тегов
+    "workbench.editor.wrapTabs": true, //перенос вкладок
+    // подсказки типов ⬇️
+    "javascript.inlayHints.enumMemberValues.enabled": true,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "literals",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    // ошибки типизации ⬇️
+    "js/ts.implicitProjectConfig.checkJs": true,
+    // Работа с файлами
+    "files.autoSave": "onFocusChange",
+    "files.defaultLanguage": "markdown",
+    // Доводка терминала
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontSize": 10,
+    // Доводка рабочей области
+    "workbench.colorCustomizations": {
+      "tab.activeBackground": "#fff3"
+    },
+    "workbench.editor.limit.value": 5,
+    "prettier.printWidth": 200,
     "prettier.tabWidth": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    
-	  "editor.tabSize": 2,
-	  "editor.insertSpaces": true,
-		"editor.detectIndentation": false
-	}
+
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
   }
-  
+}
