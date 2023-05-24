@@ -1,25 +1,23 @@
 $(document).ready(function () {
-    $(".card").on("mouseover", function () {
-        if (!$(this).children(".card__reserved:visible").length && $(this).children(".best_price.active").length) {
-            $(this).children(".best_price.active").fadeIn("200");
-            $(".card").on("mouseleave", function () {
-                $(this).children(".best_price.active").fadeOut("200");
-            });
-        }
-    });
-
-    $(".card").find(".button").on("click", function () {
-        $(this).parents(".card").on("mouseleave", function () {
-            $(this).find(".card__reserved, .footer__reserved").fadeIn("200");
-            $(this).find(".best_price.active").fadeOut("200");
-            $(".card").off("mouseleave");
+    $('.card-list__item:not(.card-list__item--active)').find('.card__button').on('click', function () {
+        $(this).parents('.card-list__item').on('mouseleave', function () {
+            $(this)
+                .addClass('card-list__item--active')
+                .find('.card__overlay, .card__reserved-wrapper')
+                .fadeIn('200');
         });
     });
 
-    $(".card").on("click", ".button", function () {
+    $('.card-list__item:not(.card-list__item--active)').on('click', '.card__button', function () {
         return false;
-    }).on("click", function () {
-        $(".card").find(".card__reserved, .footer__reserved").fadeOut("200");
+    }).on('click', function () {
+        console.log($(this).hasClass('card-list__item--active'));
+        if (!$(this).hasClass('card-list__item--active')) {
+            $('.card-list__item--active')
+                .removeClass('card-list__item--active')
+                .find('.card__overlay, .card__reserved-wrapper')
+                .fadeOut('200');
+        }
     });
 
 });

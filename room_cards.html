@@ -13,11 +13,12 @@
   </head>
   <body class="page__body">
     <header class="header">
-      <h1 class="header__title title">НОМЕРА И ЦЕНЫ</h1>
+      <h1 class="header__title">НОМЕРА И ЦЕНЫ</h1>
     </header>
 
     <main class="main">
       <ul class="card-list">
+
         <li class="card-list__item">
           <section class="card">
             <h3 class="card__title">
@@ -31,17 +32,17 @@
                 <span class="area-price__text">от <span class="area-price__cost">7 900</span> <span class="area-price__symbol">₽</span></span>
               </div>
               <div class="card__area-button">
-                <a class="card__button">Забронировать</a>
+                <a class="card__button"><span class="card__button-inner">Забронировать</span></a>
               </div>
             </div>
           </section>
-
-          <div class="card__reserved"></div>
-          <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+          <div class="card__overlay"></div>
+          <div class="card__reserved-wrapper">
+            <div class="card__reserved">
+              <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+            </div>
           </div>
-          <div class="best-price best-price--hidden">Гарантия лучшей цены!</div>
-
+          <div class="best-price">Гарантия лучшей цены!</div>
           <picture class="card-box__image-container">
             <img class="card-box__image" src="img/room_1.jpg" alt="Представительский люкс">
           </picture>
@@ -64,13 +65,13 @@
               </div>
             </div>
           </section>
-
-          <div class="card__reserved"></div>
-          <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+          <div class="card__overlay"></div>
+          <div class="card__reserved-wrapper">
+            <div class="card__reserved">
+              <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+            </div>
           </div>
           <div class="best-price best-price--active">Гарантия лучшей цены!</div>
-
           <picture class="card-box__image-container">
             <img class="card-box__image" src="img/room_2.jpg" alt="Дуплекс">
           </picture>
@@ -93,17 +94,18 @@
               </div>
             </div>
           </section>
-
-          <div class="card__reserved"></div>
-          <div class="footer__reserved">
-            <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+          <div class="card__overlay"></div>
+          <div class="card__reserved-wrapper">
+            <div class="card__reserved">
+              <span class="reserved__text">Номер зарезервирован<br>Перейти к <a class="text__link" href="">оплате</a></span>
+            </div>
           </div>
-          <div class="best-price best-price--hidden">Гарантия лучшей цены!</div>
-
+          <div class="best-price">Гарантия лучшей цены!</div>
           <picture class="card-box__image-container card-box__image-container">
             <img class="card-box__image" src="img/room_3.jpg" alt="Бизнес-люкс">
           </picture>
         </li>
+
       </ul>
     </main>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
