@@ -1,6 +1,10 @@
 .page {
   height: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .page__body {
@@ -8,12 +12,12 @@
   box-sizing: border-box;
   overflow-x: hidden;
   background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed,
-  url("../img/background.svg") center 0 / 1920px 938px no-repeat fixed;
+  url("../img/background.svg") center / 100% no-repeat fixed;
   background-size: cover;
 }
 
 .header {
-  margin: 239px 0 0 0;
+  margin: 24px 0 0 0;
 }
 
 .header__title {
@@ -277,19 +281,19 @@
   left: 24px;
   z-index: 10;
   box-sizing: border-box;
-  padding: 6px 4px 3px 16px;
+  height: 30px;
+  padding: 4px 5px 0 16px;
   border-radius: 3px 0 0 3px;
   background: #ff7647;
   opacity: 0;
-
 }
 
 .best-price::after {
   display: inline-block;
+  vertical-align: middle;
   position: absolute;
   top: 0;
   margin: 0 0 0 4px;
-  /*left: 0;*/
   content: "";
   width: 36px;
   height: 30px;
@@ -298,6 +302,7 @@
 
 .best-price__text {
   display: inline-block;
+  vertical-align: middle;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -309,7 +314,7 @@
 }
 
 .best-price--active {
-  opacity: 1;
+  opacity: 0;
   transition: 0.5s;
 }
 
