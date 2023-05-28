@@ -221,7 +221,6 @@
   top: 0;
   left: 0;
   z-index: 2;
-  display: none;
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.4);
@@ -233,11 +232,24 @@
   left: 0;
   bottom: 0;
   z-index: 3;
-  display: none;
   width: 100%;
   height: 96px;
   background: #3c3e43;
   border-radius: 0 0 10px 10px;
+}
+
+.card-wrapper--active > .card-wrapper__overlay,
+.card-wrapper--active > .card-wrapper__reserved-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0s 1s;
+}
+
+.card-wrapper--selected > .card-wrapper__overlay,
+.card-wrapper--selected > .card-wrapper__reserved-wrapper {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s, visibility 0s;
 }
 
 .card-wrapper__reserved {
