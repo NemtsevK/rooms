@@ -9,6 +9,7 @@
 
 .page__body {
   margin: 0;
+  width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
   background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed,

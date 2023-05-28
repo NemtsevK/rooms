@@ -5,14 +5,12 @@ $(document).ready(function () {
 });
 
 function ClickButton() {
-    console.log('click-active');
     $(this)
         .parents('.card-wrapper')
         .on('mouseleave', SetReserved);
 }
 
 function SetReserved() {
-    console.log('mouseleave-active');
     $(this)
         .off('mouseleave')
         .removeClass('card-wrapper--active')
@@ -22,7 +20,6 @@ function SetReserved() {
 }
 
 function CancelReserved() {
-    console.log('click-selected');
     $(this)
         .off('click')
         .removeClass('card-wrapper--selected')
