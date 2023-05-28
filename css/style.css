@@ -9,8 +9,9 @@
 
 .page__body {
   margin: 0;
+  height: 100%;
   box-sizing: border-box;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
   background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed,
   url("../img/background.svg") center / 100% no-repeat fixed;
   background-size: cover;
@@ -66,7 +67,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
-.card-wrapper--active:hover {
+.card-wrapper--selected:hover {
   box-shadow: none;
 }
 
@@ -315,12 +316,14 @@
 
 .best-price--active {
   opacity: 0;
-  transition: 0.5s;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0s 1s;
 }
 
-.card-wrapper:hover:not(.card-wrapper--active) > .best-price--active {
+.card-wrapper--active:hover > .best-price--active {
   opacity: 1;
-  transition: 0.5s;
+  visibility: visible;
+  transition: opacity 1s, visibility 0s;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {

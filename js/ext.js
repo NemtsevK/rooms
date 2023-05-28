@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.card-wrapper:not(.card-wrapper--active)')
+    $('.card-wrapper--active')
         .find('.card__button')
         .on('click', ClickButton);
 
@@ -10,21 +10,28 @@ $(document).ready(function () {
 
 function ClickButton() {
     $(this).parents('.card-wrapper').on('mouseleave', SetReserved);
+
 }
 
 function SetReserved() {
     $(this)
         .off('mouseleave')
-        .addClass('card-wrapper--active')
+        .removeClass('card-wrapper--active')
+        .addClass('card-wrapper--selected')
         .find('.card-wrapper__overlay, .card-wrapper__reserved-wrapper')
-        .fadeIn('200');
+        .fadeIn('200',function (){
+            $(this).on('click', CancelReserved);
+        });
 }
 
 function CancelReserved() {
-    if (!$(this).hasClass('card-wrapper--active')) {
-        $('.card-wrapper--active')
-            .removeClass('card-wrapper--active')
-            .find('.card-wrapper__overlay, .card-wrapper__reserved-wrapper')
-            .fadeOut('200');
-    }
+    console.log($(this));
+    $(this)
+        .parents('.card-wrapper--selected')
+        .removeClass('card-wrapper--selected')
+        .addClass('card-wrapper--active')
+        .find('.card-wrapper__overlay, .card-wrapper__reserved-wrapper')
+        .fadeOut('200');
+
+    // }
 }
