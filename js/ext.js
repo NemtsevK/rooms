@@ -9,7 +9,13 @@ $(document).ready(function () {
 });
 
 function ClickButton() {
-    $(this).parents('.card-wrapper').on('mouseleave', SetReserved);
+    $(this)
+        .parents('.card-wrapper')
+        .on({
+            'mouseleave': SetReserved,
+            'touchend': SetReserved,
+        });
+    // $(this).parents('.card-wrapper').on('touchend ', SetReserved);
 
 }
 
