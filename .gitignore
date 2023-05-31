@@ -1,7 +1,4 @@
 /node_modules/
 /gulpfile.js
 *.json
-
-/.idea/
-.idea/watcherTasks.xml
-.idea/watcherTasks.xml
+.idea/
