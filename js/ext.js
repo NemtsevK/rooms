@@ -1,27 +1,26 @@
-let card_button = document.querySelectorAll('.card-wrapper--active .card__button');
-console.log(card_button);
-card_button.addEventListener('click', ClickButton,false);
+let buttonArray = document.querySelectorAll('.card__button');
 
-function ClickButton() {
-    console.log('click');
-    let card_wrapper = card_button[0].closest('.card-wrapper');
-    card_wrapper.addEventListener('mouseleave', SetReserved, false);
+buttonArray.forEach(cardButton => {
+    cardButton.addEventListener('click', clickButton);
+})
 
-    function SetReserved() {
-        console.log('reserved');
-        card_wrapper.classList.remove('card-wrapper--active');
-        card_wrapper.classList.add('card-wrapper--selected');
-        card_wrapper.addEventListener('click', CancelReserved,false);
-
-        function CancelReserved() {
-            console.log('cancel_reserved');
-            card_wrapper.classList.remove('card-wrapper--selected');
-            card_wrapper.classList.add('card-wrapper--active');
-        }
-    }
-
+function clickButton() {
+    let cardWrapper = this.closest('.card-wrapper');
+    cardWrapper.addEventListener('mouseleave', setReserved);
 }
 
+function setReserved() {
+    let cardWrapper = this;
+    cardWrapper.removeEventListener('mouseleave', setReserved);
+    cardWrapper.classList.remove('card-wrapper--active');
+    cardWrapper.classList.add('card-wrapper--selected');
+    cardWrapper.removeEventListener('click', clickButton);
+    cardWrapper.addEventListener('click', cancelReserved);
+}
 
-
-
+function cancelReserved() {
+    let cardWrapper = this;
+    cardWrapper.removeEventListener('click', cancelReserved);
+    cardWrapper.classList.remove('card-wrapper--selected');
+    cardWrapper.classList.add('card-wrapper--active');
+}
