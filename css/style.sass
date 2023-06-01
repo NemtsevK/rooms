@@ -1,42 +1,39 @@
-@font-face 
-  font-display: swap
-  font-family: 'Roboto'
-  font-style: normal
-  font-weight: 400
-  src: url('../fonts/roboto-v30-cyrillic_latin-regular.woff2') format('woff2'),
-  url('../fonts/roboto-v30-cyrillic_latin-regular.woff') format('woff')
+$color-text: #ffffff
 
 @font-face
   font-display: swap
-  font-family: 'Roboto'
+  font-family: "Roboto"
+  font-style: normal
+  font-weight: 400
+  src: url("../fonts/roboto-v30-cyrillic_latin-regular.woff2") format("woff2"), url("../fonts/roboto-v30-cyrillic_latin-regular.woff") format("woff")
+
+@font-face
+  font-display: swap
+  font-family: "Roboto"
   font-style: normal
   font-weight: 500
-  src: url('../fonts/roboto-v30-cyrillic_latin-500.woff2') format('woff2'),
-  url('../fonts/roboto-v30-cyrillic_latin-500.woff') format('woff')
+  src: url("../fonts/roboto-v30-cyrillic_latin-500.woff2") format("woff2"), url("../fonts/roboto-v30-cyrillic_latin-500.woff") format("woff")
 
 @font-face
   font-display: swap
-  font-family: 'Roboto'
+  font-family: "Roboto"
   font-style: normal
   font-weight: 700
-  src: url('../fonts/roboto-v30-cyrillic_latin-700.woff2') format('woff2'),
-  url('../fonts/roboto-v30-cyrillic_latin-700.woff') format('woff')
+  src: url("../fonts/roboto-v30-cyrillic_latin-700.woff2") format("woff2"), url("../fonts/roboto-v30-cyrillic_latin-700.woff") format("woff")
 
 @font-face
   font-display: swap
-  font-family: 'Open Sans'
+  font-family: "Open Sans"
   font-style: normal
   font-weight: 400
-  src: url('../fonts/open-sans-v35-cyrillic_latin-regular.woff2') format('woff2'),
-  url('../fonts/open-sans-v35-cyrillic_latin-regular.woff') format('woff')
+  src: url("../fonts/open-sans-v35-cyrillic_latin-regular.woff2") format("woff2"), url("../fonts/open-sans-v35-cyrillic_latin-regular.woff") format("woff")
 
 @font-face
   font-display: swap
-  font-family: 'Open Sans'
+  font-family: "Open Sans"
   font-style: normal
   font-weight: 700
-  src: url('../fonts/open-sans-v35-cyrillic_latin-700.woff2') format('woff2'),
-  url('../fonts/open-sans-v35-cyrillic_latin-700.woff') format('woff')
+  src: url("../fonts/open-sans-v35-cyrillic_latin-700.woff2") format("woff2"), url("../fonts/open-sans-v35-cyrillic_latin-700.woff") format("woff")
 
 .page
   height: 100%
@@ -51,8 +48,7 @@
     width: 100%
     overflow-x: hidden
     box-sizing: border-box
-    background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed,
-    url('../img/background.svg') center / 100% no-repeat fixed
+    background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed, url("../img/background.svg") center / 100% no-repeat fixed
     background-size: cover
 
 .header
@@ -61,7 +57,7 @@
   &__title
     overflow: hidden
     margin: 0 auto
-    font-family: 'Roboto', 'Arial', sans-serif
+    font-family: "Roboto", "Arial", sans-serif
     font-style: normal
     font-weight: 500
     font-size: 36px
@@ -90,17 +86,17 @@
     box-sizing: border-box
 
 .card-wrapper
-  color: #ffffff
+  color: $color-text
   list-style-type: none
   background: linear-gradient(180deg, rgba(10, 34, 64, 0.1) 0%, #0a2240 100%)
   border-radius: 10px
 
-.card-wrapper:hover
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6)
+  &:hover
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6)
 
-.card-wrapper--selected:hover
-  box-shadow: none
-  cursor: pointer
+  &--card-wrapper:hover
+    box-shadow: none
+    cursor: pointer
 
 .card
   display: flex
@@ -116,22 +112,22 @@
 
   &__title
     margin: 0
-    font-family: 'Roboto', 'Arial', sans-serif
+    font-family: "Roboto", "Arial", sans-serif
     font-style: normal
     font-weight: 700
     font-size: 24px
     line-height: 32px
-    color: #ffffff
+    color: $color-text
 
-  &__title:hover
-    text-decoration: underline
+    &:hover
+      text-decoration: underline
 
-  &__title:active
-    color: rgba(255, 255, 255, 0.5)
+    &:active
+      color: rgba(255, 255, 255, 0.5)
 
   &__description
     margin: 10px 0 0 0
-    font-family: 'Open Sans', 'Arial', sans-serif
+    font-family: "Open Sans", "Arial", sans-serif
     font-style: normal
     font-weight: 400
     font-size: 16px
@@ -156,7 +152,7 @@
 .area-price
   &__head
     margin: 1px 0 0 0
-    font-family: 'Open Sans', 'Arial', sans-serif
+    font-family: "Open Sans", "Arial", sans-serif
     font-style: normal
     font-weight: 700
     font-size: 16px
@@ -164,7 +160,7 @@
 
   &__text
     margin: 0 0 -1px 0
-    font-family: 'Roboto', 'Arial', sans-serif
+    font-family: "Roboto", "Arial", sans-serif
     font-style: normal
     font-weight: 700
     font-size: 19px
@@ -186,25 +182,25 @@
 .button
   padding: 12px 10px
   width: 100%
-  font-family: 'Open Sans', 'Arial', sans-serif
+  font-family: "Open Sans", "Arial", sans-serif
   font-style: normal
   font-weight: 700
   font-size: 16px
   line-height: 24px
   user-select: none
-  color: #ffffff
+  color: $color-text
   outline: none
   border: 0
   background: #f91155
   border-radius: 5px
 
-.button:hover
-  cursor: pointer
-  background: #d8003f
+  &:hover
+    cursor: pointer
+    background: #d8003f
 
-.button:active
-  color: #f9637c
-  background: #d8003f
+  &:active
+    color: #f9637c
+    background: #d8003f
 
   &__text
     margin: 0 0 0 2px
@@ -267,12 +263,12 @@
   &__text
     margin: 0
     overflow: hidden
-    font-family: 'Open Sans', 'Arial', sans-serif
+    font-family: "Open Sans", "Arial", sans-serif
     font-style: normal
     font-weight: 400
     font-size: 14px
     line-height: 21px
-    color: #ffffff
+    color: $color-text
     text-align: center
     text-overflow: ellipsis
     white-space: nowrap
@@ -281,12 +277,12 @@
     color: #ff4b77
     text-decoration: none
 
-  &__text-link:hover
-    cursor: pointer
-    text-decoration: underline
+    &:hover
+      cursor: pointer
+      text-decoration: underline
 
-  &__text-link:active
-    color: #ff97b0
+    &:active
+      color: #ff97b0
 
 .best-price
   position: absolute
@@ -301,16 +297,16 @@
   background: #ff7647
   opacity: 0
 
-.best-price::after
-  display: inline-block
-  vertical-align: middle
-  position: absolute
-  top: 0
-  margin: 0 0 0 4px
-  content: ''
-  width: 36px
-  height: 30px
-  background: url(../img/icon_discount.svg) no-repeat
+  &::after
+    display: inline-block
+    vertical-align: middle
+    position: absolute
+    top: 0
+    margin: 0 0 0 4px
+    content: ""
+    width: 36px
+    height: 30px
+    background: url(../img/icon_discount.svg) no-repeat
 
   &--active
     opacity: 0
@@ -323,19 +319,18 @@
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap
-    font-family: 'Roboto', 'Arial', sans-serif
+    font-family: "Roboto", "Arial", sans-serif
     font-style: normal
     font-weight: 700
     font-size: 14px
     line-height: 21px
-    color: #ffffff
+    color: $color-text
     max-width: 175px
 
 .card-wrapper--active:hover > .best-price--active
   opacity: 1
   visibility: visible
   transition: opacity 1s, visibility 0s
-
 
 @media (min-width: 768px) and (max-width: 1279px)
 
@@ -363,10 +358,8 @@
     &__line
       margin: 21px 0 16px 0
 
-
     &__description
       margin-top: 8px
-
 
     &__footer
       display: flex
@@ -374,7 +367,6 @@
       justify-content: center
       align-items: stretch
       row-gap: 16px
-
 
     &__area-button
       align-self: stretch
@@ -457,14 +449,14 @@
     border-radius: 3px
     font-size: 14px
 
-  &__text
-    margin: -1px 0 1px 2px
+    &__text
+      margin: -1px 0 1px 2px
 
   .card-wrapper
     &__image,
     &__overlay
       border-radius: 13px
 
-    .&__reserved-wrapper
+    &__reserved-wrapper
       height: 149px
       border-radius: 0 0 13px 13px
