@@ -1,51 +1,85 @@
 let gulp = require('gulp');
-
-// let requireDir = require('require-dir');
 let sass = require('gulp-sass')(require('sass'));
 let cssmin = require('gulp-cssmin');
-// let rename = require('gulp-rename');
+let rename = require('gulp-rename');
 let uglify = require('gulp-uglify-es').default;
-const htmlmin = require('gulp-htmlmin');
+let htmlmin = require('gulp-htmlmin');
 
-gulp.task('style', function (done) {
- gulp.src('css/*.sass')
-     .pipe(sass())
-     .pipe(gulp.dest('css/'));
- gulp.src('css/*.css')
-     .pipe(cssmin())
-     .pipe(gulp.dest('build/css'));
- done();
+function convertSass() {
+    return gulp.src('./css/*.sass')
+        .pipe(sass())
+        .pipe(gulp.dest('./css/'));
+}
+
+gulp.task('convert-sass', function (done) {
+    convertSass();
+    done();
 });
 
-gulp.task("js", function () {
- return gulp.src("js/*.js")
-     .pipe(uglify())
-     .pipe(gulp.dest("build/js"));
+function minCss() {
+    return gulp.src(['./css/*.css', '!!./css/*.min.css'])
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('css'));
+}
+
+function minJs() {
+    return gulp.src(['./js/*.js', '!!./js/*.min.js'])
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('js'));
+}
+
+function minHtml() {
+    return gulp.src(['./*.html', '!!./*.min.html'])
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./'));
+}
+
+gulp.task('minification', function (done) {
+    minCss();
+    minJs();
+    minHtml();
+    done();
 });
 
-gulp.task('html', () => {
- return gulp.src('*.html')
-     .pipe(htmlmin({ collapseWhitespace: true }))
-     .pipe(gulp.dest('build'));
-});
+function moveCss() {
+    return gulp.src('./css/*.css')
+        .pipe(gulp.dest('build/css'));
+}
 
-gulp.task('move-images',function(){
- return gulp.src([
-  'img/*.svg',
-  'img/*.jpg'
- ])
-     .pipe(gulp.dest('build/img'));
-});
+function moveJs() {
+    return gulp.src('./js/*.js')
+        .pipe(gulp.dest('./build/js'));
+}
 
-gulp.task('move-favicon',function(){
- return gulp.src('*.ico')
-     .pipe(gulp.dest('build'));
-});
+function moveHtml() {
+    return gulp.src('./*.html')
+        .pipe(gulp.dest('./build'));
+}
 
-gulp.task('move-fonts',function(){
- return gulp.src([
-  'fonts/*.woff',
-  'fonts/*.woff2'
- ])
-     .pipe(gulp.dest('build/fonts'));
+function moveImages() {
+    return gulp.src(['./img/*.svg', './img/*.jpg'])
+        .pipe(gulp.dest('./build/img'));
+}
+
+function moveFavicon() {
+    return gulp.src('./*.ico')
+        .pipe(gulp.dest('./build'));
+}
+
+function moveFonts() {
+    return gulp.src(['./fonts/*.woff', './fonts/*.woff2'])
+        .pipe(gulp.dest('./build/fonts'));
+}
+
+gulp.task('build-project', function (done) {
+    moveCss();
+    moveJs();
+    moveHtml();
+    moveImages();
+    moveFavicon();
+    moveFonts();
+    done();
 });

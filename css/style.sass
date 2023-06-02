@@ -1,4 +1,24 @@
 $color-text: #ffffff
+$border-radius-medium: 10px
+$border-radius-big: 13px
+$main-family-text: "Roboto", "Arial", sans-serif
+$second-family-text: "Open Sans", "Arial", sans-serif
+
+@mixin big-text
+  font-size: 24px
+  line-height: 32px
+
+@mixin middle-text
+  font-size: 16px
+  line-height: 24px
+
+@mixin small-text
+  font-size: 14px
+  line-height: 21px
+
+@mixin center-block
+  justify-content: center
+  align-items: center
 
 @font-face
   font-display: swap
@@ -40,8 +60,7 @@ $color-text: #ffffff
   box-sizing: border-box
   display: flex
   flex-flow: column nowrap
-  justify-content: center
-  align-items: center
+  @include center-block
 
   &__body
     margin: 0
@@ -57,7 +76,7 @@ $color-text: #ffffff
   &__title
     overflow: hidden
     margin: 0 auto
-    font-family: "Roboto", "Arial", sans-serif
+    font-family: $main-family-text
     font-style: normal
     font-weight: 500
     font-size: 36px
@@ -89,12 +108,12 @@ $color-text: #ffffff
   color: $color-text
   list-style-type: none
   background: linear-gradient(180deg, rgba(10, 34, 64, 0.1) 0%, #0a2240 100%)
-  border-radius: 10px
+  border-radius: $border-radius-medium
 
   &:hover
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6)
 
-  &--card-wrapper:hover
+  &--selected:hover
     box-shadow: none
     cursor: pointer
 
@@ -112,11 +131,10 @@ $color-text: #ffffff
 
   &__title
     margin: 0
-    font-family: "Roboto", "Arial", sans-serif
+    font-family: $main-family-text
     font-style: normal
     font-weight: 700
-    font-size: 24px
-    line-height: 32px
+    @include big-text
     color: $color-text
 
     &:hover
@@ -127,11 +145,10 @@ $color-text: #ffffff
 
   &__description
     margin: 10px 0 0 0
-    font-family: "Open Sans", "Arial", sans-serif
+    font-family: $second-family-text
     font-style: normal
     font-weight: 400
-    font-size: 16px
-    line-height: 24px
+    @include middle-text
 
   &__line
     margin: 21px 0 15px 0
@@ -142,8 +159,7 @@ $color-text: #ffffff
   &__footer
     display: grid
     grid-template-columns: 117px 180px
-    justify-content: center
-    align-items: stretch
+    @include center-block
     column-gap: 27px
 
   &__area-button
@@ -152,15 +168,14 @@ $color-text: #ffffff
 .area-price
   &__head
     margin: 1px 0 0 0
-    font-family: "Open Sans", "Arial", sans-serif
+    font-family: $second-family-text
     font-style: normal
     font-weight: 700
-    font-size: 16px
-    line-height: 24px
+    @include middle-text
 
   &__text
     margin: 0 0 -1px 0
-    font-family: "Roboto", "Arial", sans-serif
+    font-family: $main-family-text
     font-style: normal
     font-weight: 700
     font-size: 19px
@@ -168,11 +183,11 @@ $color-text: #ffffff
 
   &__cost
     padding: 0 2px 0 2px
-    font-size: 24px
-    line-height: 32px
+    @include big-text
     color: #ff4b77
 
   &__symbol-money
+    margin: 0 0 0 1px
     font-style: normal
     font-weight: 400
     font-size: 23px
@@ -182,11 +197,10 @@ $color-text: #ffffff
 .button
   padding: 12px 10px
   width: 100%
-  font-family: "Open Sans", "Arial", sans-serif
+  font-family: $second-family-text
   font-style: normal
   font-weight: 700
-  font-size: 16px
-  line-height: 24px
+  @include middle-text
   user-select: none
   color: $color-text
   outline: none
@@ -215,7 +229,7 @@ $color-text: #ffffff
     width: 100%
     height: 100%
     object-fit: cover
-    border-radius: 10px
+    border-radius: $border-radius-medium
 
   &__overlay
     position: absolute
@@ -225,25 +239,32 @@ $color-text: #ffffff
     width: 100%
     height: 100%
     background: rgba(255, 255, 255, 0.4)
-    border-radius: 10px
+    border-radius: $border-radius-medium
 
   &__reserved-wrapper
     position: absolute
     left: 0
     bottom: 0
     z-index: 3
+    display: flex
+    flex-flow: row nowrap
+    @include center-block
     width: 100%
-    height: 96px
+    min-height: 96px
     background: #3c3e43
-    border-radius: 0 0 10px 10px
+    border-radius: 0 0 $border-radius-medium $border-radius-medium
 
+  &__reserved
+    display: flex
+    height: 100%
+    flex-flow: column nowrap
+    @include center-block
 
 .card-wrapper--active > .card-wrapper__overlay,
 .card-wrapper--active > .card-wrapper__reserved-wrapper
   opacity: 0
   visibility: hidden
   transition: opacity 1s, visibility 0s 1s
-
 
 .card-wrapper--selected > .card-wrapper__overlay,
 .card-wrapper--selected > .card-wrapper__reserved-wrapper
@@ -252,26 +273,16 @@ $color-text: #ffffff
   transition: opacity 1s, visibility 0s
 
 
-.card-wrapper__reserved
-  display: flex
-  height: 100%
-  flex-flow: column nowrap
-  justify-content: center
-  align-items: center
 
 .reserved
   &__text
     margin: 0
-    overflow: hidden
-    font-family: "Open Sans", "Arial", sans-serif
+    font-family: $second-family-text
     font-style: normal
     font-weight: 400
-    font-size: 14px
-    line-height: 21px
+    @include small-text
     color: $color-text
     text-align: center
-    text-overflow: ellipsis
-    white-space: nowrap
 
   &__text-link
     color: #ff4b77
@@ -319,11 +330,10 @@ $color-text: #ffffff
     overflow: hidden
     text-overflow: ellipsis
     white-space: nowrap
-    font-family: "Roboto", "Arial", sans-serif
+    font-family: $main-family-text
     font-style: normal
     font-weight: 700
-    font-size: 14px
-    line-height: 21px
+    @include small-text
     color: $color-text
     max-width: 175px
 
@@ -374,7 +384,7 @@ $color-text: #ffffff
 
   .card-wrapper
     &__reserved-wrapper
-      height: 161px
+      min-height: 161px
 
 @media (max-width: 767px)
 
@@ -383,8 +393,7 @@ $color-text: #ffffff
 
     &__title
       font-weight: 700
-      font-size: 24px
-      line-height: 32px
+      @include big-text
 
   .main
     margin-top: 24px
@@ -401,7 +410,7 @@ $color-text: #ffffff
       align-items: flex-end
       width: 288px
       min-height: 347px
-      border-radius: 13px
+      border-radius: $border-radius-big
 
   .card
     padding: 21px
@@ -412,8 +421,7 @@ $color-text: #ffffff
 
     &__description
       margin: 11px 0 0 0
-      font-size: 14px
-      line-height: 21px
+      @include small-text
 
     &__line
       margin: 20px 0 18px 0
@@ -432,17 +440,19 @@ $color-text: #ffffff
   .area-price
     &__head
       margin: 0
-      font-size: 14px
-      line-height: 21px
+      @include small-text
 
     &__text
       font-size: 17px
       line-height: 21px
 
-    &__symbol-money,
     &__cost
       font-size: 20px
       margin: 0 0 0 -1px
+
+    &__symbol-money
+      font-family: $second-family-text
+      font-size: 20px
 
   .button
     padding: 9px 10px
@@ -455,8 +465,8 @@ $color-text: #ffffff
   .card-wrapper
     &__image,
     &__overlay
-      border-radius: 13px
+      border-radius: $border-radius-big
 
     &__reserved-wrapper
-      height: 149px
-      border-radius: 0 0 13px 13px
+      min-height: 150px
+      border-radius: 0 0 $border-radius-big $border-radius-big

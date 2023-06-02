@@ -96,7 +96,7 @@
 .card-wrapper:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
-.card-wrapper--card-wrapper:hover {
+.card-wrapper--selected:hover {
   box-shadow: none;
   cursor: pointer;
 }
@@ -146,7 +146,7 @@
   display: grid;
   grid-template-columns: 117px 180px;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   column-gap: 27px;
 }
 .card__area-button {
@@ -176,6 +176,7 @@
   color: #ff4b77;
 }
 .area-price__symbol-money {
+  margin: 0 0 0 1px;
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -236,10 +237,21 @@
   left: 0;
   bottom: 0;
   z-index: 3;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 96px;
+  min-height: 96px;
   background: #3c3e43;
   border-radius: 0 0 10px 10px;
+}
+.card-wrapper__reserved {
+  display: flex;
+  height: 100%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-wrapper--active > .card-wrapper__overlay,
@@ -256,17 +268,8 @@
   transition: opacity 1s, visibility 0s;
 }
 
-.card-wrapper__reserved {
-  display: flex;
-  height: 100%;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .reserved__text {
   margin: 0;
-  overflow: hidden;
   font-family: "Open Sans", "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -274,8 +277,6 @@
   line-height: 21px;
   color: #ffffff;
   text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .reserved__text-link {
   color: #ff4b77;
@@ -379,7 +380,7 @@
     margin-top: 0;
   }
   .card-wrapper__reserved-wrapper {
-    height: 161px;
+    min-height: 161px;
   }
 }
 @media (max-width: 767px) {
@@ -443,9 +444,13 @@
     font-size: 17px;
     line-height: 21px;
   }
-  .area-price__symbol-money, .area-price__cost {
+  .area-price__cost {
     font-size: 20px;
     margin: 0 0 0 -1px;
+  }
+  .area-price__symbol-money {
+    font-family: "Open Sans", "Arial", sans-serif;
+    font-size: 20px;
   }
   .button {
     padding: 9px 10px;
@@ -459,7 +464,7 @@
     border-radius: 13px;
   }
   .card-wrapper__reserved-wrapper {
-    height: 149px;
+    min-height: 150px;
     border-radius: 0 0 13px 13px;
   }
 }
