@@ -176,6 +176,7 @@
   color: #ff4b77;
 }
 .area-price__symbol-money {
+  font-family: -apple-system, "Open Sans", "Arial", sans-serif;
   margin: 0 0 0 1px;
   font-style: normal;
   font-weight: 400;
@@ -450,7 +451,7 @@
     margin: 0 0 0 -1px;
   }
   .area-price__symbol-money {
-    font-family: -apple-system, "Open Sans", "Arial", sans-serif;
+    font-family: -apple-system, "Roboto", "Arial", sans-serif;
     font-size: 20px;
   }
   .button {
