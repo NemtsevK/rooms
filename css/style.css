@@ -450,7 +450,7 @@
     margin: 0 0 0 -1px;
   }
   .area-price__symbol-money {
-    font-family: "Open Sans", "Arial", sans-serif;
+    font-family: -apple-system, "Open Sans", "Arial", sans-serif;
     font-size: 20px;
   }
   .button {
