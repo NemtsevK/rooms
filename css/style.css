@@ -185,6 +185,7 @@
 }
 
 .button {
+  margin: 0;
   padding: 12px 10px;
   width: 100%;
   font-family: "Open Sans", "Arial", sans-serif;
