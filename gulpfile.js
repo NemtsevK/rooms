@@ -17,21 +17,21 @@ gulp.task('convert-sass', function (done) {
 });
 
 function minCss() {
-    return gulp.src(['./css/*.css', '!!./css/*.min.css'])
+    return gulp.src(['!!./css/*.min.css','./css/*.css'])
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('./css'));
 }
 
 function minJs() {
-    return gulp.src(['./js/*.js', '!!./js/*.min.js'])
+    return gulp.src(['!!./js/*.min.js', './js/*.js'])
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('js'));
+        .pipe(gulp.dest('./js'));
 }
 
 function minHtml() {
-    return gulp.src(['./*.html', '!!./*.min.html'])
+    return gulp.src(['!!./*.min.html', './*.html'])
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./'));
@@ -46,7 +46,7 @@ gulp.task('minification', function (done) {
 
 function moveCss() {
     return gulp.src('./css/*.css')
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('./build/css'));
 }
 
 function moveJs() {
