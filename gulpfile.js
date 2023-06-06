@@ -17,21 +17,21 @@ gulp.task('convert-sass', function (done) {
 });
 
 function minCss() {
-    return gulp.src(['!!./css/*.min.css','./css/*.css'])
+    return gulp.src(['./css/*.css','!./css/*.min.css'])
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./css'));
 }
 
 function minJs() {
-    return gulp.src(['!!./js/*.min.js', './js/*.js'])
+    return gulp.src(['./js/*.js', '!./js/*.min.js'])
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./js'));
 }
 
 function minHtml() {
-    return gulp.src(['!!./*.min.html', './*.html'])
+    return gulp.src(['./*.html','!./*.min.html'])
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./'));
