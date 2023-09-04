@@ -1,85 +1,140 @@
-let gulp = require('gulp');
-let sass = require('gulp-sass')(require('sass'));
-let cssmin = require('gulp-cssmin');
-let rename = require('gulp-rename');
-let uglify = require('gulp-uglify-es').default;
-let htmlmin = require('gulp-htmlmin');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import sass from 'gulp-dart-sass';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import csso from 'postcss-csso';
+import rename from 'gulp-rename';
+import htmlmin from 'gulp-htmlmin';
+import terser from 'gulp-terser';
+import squoosh from 'gulp-libsquoosh';
+import del from 'del';
+import browser from 'browser-sync';
+import replace from 'gulp-replace';
 
-function convertSass() {
-    return gulp.src('./css/*.sass')
-        .pipe(sass())
-        .pipe(gulp.dest('./css/'));
-}
-
-gulp.task('convert-sass', function (done) {
-    convertSass();
-    done();
-});
-
-function minCss() {
-    return gulp.src(['./css/*.css','!./css/*.min.css'])
-        .pipe(cssmin())
+// Styles
+export const styles = () => {
+    return gulp.src('source/sass/style.scss', {sourcemaps: true})
+        .pipe(plumber())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([
+            autoprefixer(),
+            csso()
+        ]))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('build/css', {sourcemaps: '.'}))
+        .pipe(browser.stream());
 }
 
-function minJs() {
-    return gulp.src(['./js/*.js', '!./js/*.min.js'])
-        .pipe(uglify())
+// Scripts
+const scripts = () => {
+    return gulp.src('source/js/*.js')
+        .pipe(terser())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./js'));
+        .pipe(gulp.dest('build/js'))
+        .pipe(browser.stream());
 }
 
-function minHtml() {
-    return gulp.src(['./*.html','!./*.min.html'])
+// HTML
+const html = () => {
+    return gulp.src('source/*.html')
+        .pipe(replace('.css', '.min.css'))
+        .pipe(replace('.js', '.min.js'))
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('build'));
 }
 
-gulp.task('minification', function (done) {
-    minCss();
-    minJs();
-    minHtml();
+// Images
+const optimizeImages = () => {
+    return gulp.src('source/img/**/*.{png,jpg}')
+        .pipe(squoosh())
+        .pipe(gulp.dest('build/img'))
+}
+
+const copyImages = () => {
+    return gulp.src('source/img/**/*.{png,jpg}')
+        .pipe(gulp.dest('build/img'))
+}
+
+// WebP
+const createWebp = () => {
+    return gulp.src('source/img/**/*.{png,jpg}')
+        .pipe(squoosh({
+            webp: {}
+        }))
+        .pipe(gulp.dest('build/img'))
+}
+
+// Copy
+const copy = (done) => {
+    gulp.src([
+        'source/fonts/**/*.{woff2,woff}',
+        'source/*.ico',
+        'source/*.webmanifest',
+    ], {
+        base: 'source'
+    })
+        .pipe(gulp.dest('build'))
     done();
-});
-
-function moveCss() {
-    return gulp.src('./css/*.css')
-        .pipe(gulp.dest('./build/css'));
 }
 
-function moveJs() {
-    return gulp.src('./js/*.js')
-        .pipe(gulp.dest('./build/js'));
-}
+// Clean
+const clean = () => {
+    return del('build');
+};
 
-function moveHtml() {
-    return gulp.src('./*.html')
-        .pipe(gulp.dest('./build'));
-}
-
-function moveImages() {
-    return gulp.src(['./img/*.svg', './img/*.jpg'])
-        .pipe(gulp.dest('./build/img'));
-}
-
-function moveFavicon() {
-    return gulp.src('./*.ico')
-        .pipe(gulp.dest('./build'));
-}
-
-function moveFonts() {
-    return gulp.src(['./fonts/*.woff', './fonts/*.woff2'])
-        .pipe(gulp.dest('./build/fonts'));
-}
-
-gulp.task('build-project', function (done) {
-    moveCss();
-    moveJs();
-    moveHtml();
-    moveImages();
-    moveFavicon();
-    moveFonts();
+// Server
+const server = (done) => {
+    browser.init({
+        server: {
+            baseDir: 'build'
+        },
+        cors: true,
+        notify: false,
+        ui: false,
+    });
     done();
-});
+}
+
+// Reload
+const reload = (done) => {
+    browser.reload();
+    done();
+}
+
+// Watcher
+const watcher = () => {
+    gulp.watch('source/sass/**/*.scss', gulp.series(styles));
+    gulp.watch('source/js/*.js', gulp.series(scripts));
+    gulp.watch('source/*.html', gulp.series(html, reload));
+}
+
+// Build
+export const build = gulp.series(
+    clean,
+    copy,
+    optimizeImages,
+    gulp.parallel(
+        styles,
+        html,
+        scripts,
+        createWebp
+    )
+);
+
+// Default
+export default gulp.series(
+    clean,
+    copy,
+    copyImages,
+    gulp.parallel(
+        styles,
+        html,
+        scripts,
+        createWebp
+    ),
+    gulp.series(
+        server,
+        watcher
+    )
+);
