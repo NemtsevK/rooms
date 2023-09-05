@@ -1,0 +1,14 @@
+@use "../global/variables" as *;
+
+.main {
+  margin: 27px 0 0 0;
+  padding: 0 0 25px 0;
+
+  @media (max-width: $tablet) {
+    margin-top: 26px;
+  }
+
+  @media (max-width: $mobile) {
+    margin-top: 24px;
+  }
+}

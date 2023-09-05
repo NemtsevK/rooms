@@ -1,0 +1,19 @@
+@mixin big-text {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin middle-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin small-text {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+@mixin center-block {
+  justify-content: center;
+  align-items: center;
+}

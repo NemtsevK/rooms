@@ -1,0 +1,28 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.reserved {
+  &__text {
+    margin: 0;
+    font-family: $second-family-text;
+    font-style: normal;
+    font-weight: 400;
+    @include small-text;
+    color: $color-text;
+    text-align: center;
+  }
+
+  &__text-link {
+    color: #ff4b77;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: #ff97b0;
+    }
+  }
+}

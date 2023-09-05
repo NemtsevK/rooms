@@ -1,0 +1,43 @@
+@use "../global/variables" as *;
+@use "../global/mixins" as *;
+
+.button {
+  margin: 0;
+  padding: 12px 10px;
+  width: 100%;
+  font-family: $second-family-text;
+  font-style: normal;
+  font-weight: 700;
+  @include middle-text;
+  user-select: none;
+  color: $color-text;
+  outline: none;
+  border: 0;
+  background: #f91155;
+  border-radius: 5px;
+
+  @media (max-width: $mobile) {
+    padding: 9px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: #d8003f;
+  }
+
+  &:active {
+    color: #f9637c;
+    background: #d8003f;
+  }
+
+  &__text {
+    margin: 0 0 0 2px;
+    pointer-events: none;
+
+    @media (max-width: $mobile) {
+      margin: -1px 0 1px 2px;
+    }
+  }
+}
