@@ -1,8 +1,10 @@
 {
+  "homepage": "https://nemtsev-k.github.io/test-work-1/",
   "devDependencies": {
     "autoprefixer": "10.4.0",
     "browser-sync": "2.27.7",
     "del": "6.0.0",
+    "gh-pages": "^6.1.1",
     "gulp": "4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-htmlmin": "^5.0.1",
@@ -11,19 +13,23 @@
     "gulp-postcss": "9.0.1",
     "gulp-rename": "2.0.0",
     "gulp-replace": "^1.1.4",
+    "gulp-stacksvg": "^2.0.2",
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "2.1.0",
     "postcss": "8.3.11",
     "postcss-csso": "5.0.1",
-    "stylelint": "13.13.1",
-    "gulp-stacksvg": "^2.0.2"
+    "stylelint": "13.13.1"
   },
   "scripts": {
     "build": "gulp build",
-    "start": "gulp"
+    "start": "gulp",
+    "deploy": "gh-pages -d build"
   },
   "engines": {
-    "node": "16.13.0"
+    "node": "16.20.2"
   },
-  "type": "module"
+  "type": "module",
+  "volta": {
+    "node": "16.20.2"
+  }
 }
