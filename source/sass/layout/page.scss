@@ -1,0 +1,16 @@
+@use "../base/mixins" as *;
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  @include center-block;
+}
+
+.page__body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, rgba(222, 237, 255, 0.6) 0%, rgba(166, 204, 250, 0.5) 100%) fixed, url("../images/background.svg") center / 100% no-repeat fixed;
+  background-size: cover;
+}

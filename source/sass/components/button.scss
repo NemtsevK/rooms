@@ -1,5 +1,5 @@
-@use "../global/variables" as *;
-@use "../global/mixins" as *;
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
 
 .button {
   margin: 0;
@@ -31,13 +31,13 @@
     color: #f9637c;
     background: #d8003f;
   }
+}
 
-  &__text {
-    margin: 0 0 0 2px;
-    pointer-events: none;
+.button__text {
+  margin: 0 0 0 2px;
+  pointer-events: none;
 
-    @media (max-width: $mobile) {
-      margin: -1px 0 1px 2px;
-    }
+  @media (max-width: $mobile) {
+    margin: -1px 0 1px 2px;
   }
 }

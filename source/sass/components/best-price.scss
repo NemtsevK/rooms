@@ -1,5 +1,5 @@
-@use "../global/variables" as *;
-@use "../global/mixins" as *;
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
 
 .best-price {
   position: absolute;
@@ -22,7 +22,7 @@
     content: "";
     width: 36px;
     height: 30px;
-    background: url(../images/icon_discount.svg) no-repeat;
+    background: url(../images/discount_element.svg) no-repeat;
   }
 
   &--active {
@@ -30,18 +30,18 @@
     visibility: hidden;
     transition: opacity 1s, visibility 0s 1s;
   }
+}
 
-  &__text {
-    display: inline-block;
-    vertical-align: middle;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-family: $main-family-text;
-    font-style: normal;
-    font-weight: 700;
-    @include small-text;
-    color: $color-text;
-    max-width: 175px;
-  }
+.best-price__text {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: $main-family-text;
+  font-style: normal;
+  font-weight: 700;
+  @include small-text;
+  color: $color-text;
+  max-width: 175px;
 }
