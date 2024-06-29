@@ -22,7 +22,7 @@
     content: "";
     width: 36px;
     height: 30px;
-    background: url(../images/discount_element.svg) no-repeat;
+    background: url("../images/discount-element.svg") no-repeat;
   }
 
   &--active {
@@ -34,6 +34,7 @@
 
 .best-price__text {
   display: inline-block;
+  max-width: 175px;
   vertical-align: middle;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,7 +42,7 @@
   font-family: $main-family-text;
   font-style: normal;
   font-weight: 700;
-  @include small-text;
   color: $color-text;
-  max-width: 175px;
+
+  @include small-text;
 }

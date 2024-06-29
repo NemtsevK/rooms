@@ -6,9 +6,10 @@
   font-family: $second-family-text;
   font-style: normal;
   font-weight: 400;
-  @include small-text;
   color: $color-text;
   text-align: center;
+
+  @include small-text;
 }
 
 .reserved__text-link {

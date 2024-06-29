@@ -8,9 +8,11 @@
   font-family: $second-family-text;
   font-style: normal;
   font-weight: 700;
-  @include middle-text;
-  user-select: none;
   color: $color-text;
+
+  @include middle-text;
+
+  user-select: none;
   outline: none;
   border: 0;
   background: #f91155;
